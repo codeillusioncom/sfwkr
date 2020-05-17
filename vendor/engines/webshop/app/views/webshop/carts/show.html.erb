@@ -1,0 +1,44 @@
+<h1>Cart show</h1>
+
+<div class="row">
+  <% @cart.line_items.each do |line_item| %>
+  <div class="col-sm-4">
+    <b><%= line_item.product.name %></b>
+  </div>
+  <div class="col-sm-2 text-right">
+    <%= number_to_currency(line_item.product.net_price) %>
+  </div>
+  <div class="col-sm-1 text-right">
+    <%= line_item.quantity %> db
+  </div>
+  <div class="col-sm-1">
+    <%= link_to "Add one", webshop.webshop_line_item_add_path(:id => line_item), method: :post %>
+  </div>
+  <div class="col-sm-1">
+    <%= link_to "Reduce one", webshop.webshop_line_item_reduce_path(:id => line_item), method: :post %>
+  </div>
+  <div class="col-sm-1">
+    <%= link_to "Remove item", webshop.webshop_line_item_path(line_item), method: :delete %>
+  </div>
+  <div class="col-sm-2 text-right">
+    <%= number_to_currency(line_item.total_price) %>
+  </div>
+  <% end %>
+</div>
+<hr />
+<div class="row">
+  <div class="col-sm-6">
+    <h3>Sub total:</h3>
+  </div>
+  <div class="col-sm-6 text-right">
+    <h3><%= number_to_currency(@cart.sub_total) %></h3>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-3">
+    <%= link_to "Empty cart", webshop.webshop_cart_path(params[:webshop_id], @current_cart),method: :delete, data: {confirm: "Are you sure?"}, class: 'btn btn-block btn-warning' %>
+  </div>
+  <div class="col-sm-9">
+    <%= link_to "Proceed to checkout", webshop.new_webshop_order_path(params[:webshop_id]), class: 'btn btn-block btn-primary' %>
+  </div>
+</div>

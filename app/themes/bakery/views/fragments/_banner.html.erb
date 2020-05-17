@@ -1,0 +1,8 @@
+<%= render 'shared/edit_button', page: @page, fragment: fragment if @page && fragment %>
+<div class="container" id="bigfirst">
+    <div class="jumbotron">
+        <h1><%= sanitize JSON.parse(fragment.value)['title'] %></h1>
+        <p class="my-text"><%= sanitize JSON.parse(fragment.value)['text'] %></p>
+        <p><a class="btn btn-light btn-lg blue-background main-button" role="button" href="<%= sanitize JSON.parse(fragment.value)['button_href'] %>"><%= sanitize JSON.parse(fragment.value)['button_text'] %></a></p>
+    </div>
+</div>

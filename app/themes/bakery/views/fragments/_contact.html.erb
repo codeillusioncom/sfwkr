@@ -1,0 +1,23 @@
+<%= render 'shared/edit_button', page: @page, fragment: fragment %>
+<div class="text-center" style="margin-top: 50px;padding-top: 120px;padding-bottom: 140px;">
+    <h1>Contact Us</h1>
+    <div class="container text-center" style="padding-bottom: 10px">
+        <%= image_tag 'bakery/call-15924_1920.jpg', width: '50%', class: 'rounded mx-auto d-block img-thumbnail' %>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 contact">
+                <h2>e-mail</h2>
+                <p><%= sanitize JSON.parse(fragment.value)['e-mail'] %></p>
+            </div>
+            <div class="col-md-4 contact">
+                <h2>phone</h2>
+                <p><%= sanitize JSON.parse(fragment.value)['phone'] %></p>
+            </div>
+            <div class="col-md-4 contact">
+                <h2>address</h2>
+                <p><%= sanitize JSON.parse(fragment.value)['address'] %></p>
+            </div>
+        </div>
+    </div>
+</div>

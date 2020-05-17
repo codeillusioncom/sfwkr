@@ -1,0 +1,18 @@
+<%= simple_form_for(@page) do |f| %>
+  <%= f.input :user_id, input_html: {value: current_user.id}, as: :hidden %>
+  <%= f.input :title, autofocus: true %>
+  <%= f.input :content, as: :trix_editor %>
+
+  <h3>Fragments</h3>
+  <div id="fragments">
+    <%= f.simple_fields_for :fragments, f.object.fragments.order(:order) do |fragment| %>
+      <%= render 'fragment_fields', f: fragment %>
+    <% end %>
+    <div class="links">
+      <%= link_to_add_association 'add fragment', f, :fragments %>
+    </div>
+  </div>
+
+  <%= f.submit class: 'btn btn-primary' %>
+  <%= link_to 'Cancel', pages.pages_path, class: 'btn btn-default' %>
+<% end %>

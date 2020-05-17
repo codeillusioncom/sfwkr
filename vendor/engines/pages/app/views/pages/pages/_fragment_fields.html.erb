@@ -1,0 +1,7 @@
+<div class="nested-fields">
+  <div class="row">
+    <div class="col"><%= f.input :fragment_name, collection: ThemeManager.new.fragments(Settings::Setting.get_system_setting('theme')) %></div>
+    <div class="col-2"><%= f.input :order %></div>
+    <div class="col-2"><%= link_to_remove_association "remove fragment", f %></div>
+  </div>
+</div>

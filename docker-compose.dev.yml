@@ -1,0 +1,31 @@
+version: '3.7'
+
+services:
+  redis:
+    image: redis
+  db:
+    image: postgres:9.6-alpine
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./volumes/db/data:/var/lib/postgresql/data:z
+    environment:
+      - POSTGRES_PASSWORD=adminadmin
+      - POSTGRES_USER=app
+      - POSTGRES_DB=app_development
+  web:
+    build: .
+    command: /bin/sh -c "scripts/cmd.sh"
+    ports:
+      - "3000:3000"
+    environment:
+      - RAILS_ENV=development
+      - POSTGRES_PASSWORD=adminadmin
+      - POSTGRES_USER=app
+      - POSTGRES_DB=app_development
+      - SYSTEM_THEME=bakery
+    volumes:
+      - .:/app:z
+      - ./volumes/app/log:/app/log:z
+      - ./volumes/app/storage:/app/storage:z
+      - ./volumes/app/tmp:/app/tmp:z

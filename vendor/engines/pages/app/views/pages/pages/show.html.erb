@@ -1,0 +1,3 @@
+<% @page.fragments.order(:order).each do |fragment| %>
+  <%= render "fragments/#{fragment.fragment_name}", fragment: fragment, page: @page %>
+<% end if @page %>

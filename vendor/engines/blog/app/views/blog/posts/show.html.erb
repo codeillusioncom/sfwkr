@@ -1,0 +1,21 @@
+<div class="blog-floating-buttons">
+  <%= link_to blog.blog_post_path(@post.blog_id, @post), method: :delete, data: {confirm: "Are you sure?"}, class: 'btn-danger btn', style: 'float:right' do %>
+    <i class="material-icons" title="Destroy post...">delete</i>
+  <% end if @post && policy(@post).destroy? %>
+  <%= link_to blog.edit_blog_post_path(@post.blog_id, @post), class: 'btn-warning btn', style: 'float:right' do %>
+    <i class="material-icons" title="Edit post...">edit</i>
+  <% end if @post && policy(@post).edit? %>
+</div>
+<div class="post">
+	<h1><%= @post.title %></h1>
+
+	<div class="post-content">
+		<%= @post.content.html_safe %>
+	</div>
+
+  <div class="buttons">
+    <%= link_to blog.blog_posts_path(@post.blog_id), class: 'btn-secondary btn' do %>
+      Back to posts...
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,27 @@
+<h1>Pages</h1>
+
+<table class="table table-bordered table-condensed table-hover table-responsive table-striped">
+  <thead>
+  <tr>
+    <th>title</th>
+    <th></th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @pages.each do |page| %>
+    <tr>
+      <td><%= page.title %></td>
+      <td class="text-right">
+        <%= link_to pages.edit_page_path(page), class: 'btn btn-warning' do %>
+          <span class="fa fa-edit"></span>
+        <% end %>
+        <%= link_to pages.page_path(page), data: {confirm: 'Are you sure?'}, method: :delete, class: 'btn btn-danger' do %>
+          <span class="fa fa-trash-o"></span>
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'Add new page...', pages.new_page_path(@page), class: 'btn btn-primary' %>

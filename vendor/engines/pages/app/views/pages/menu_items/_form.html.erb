@@ -1,0 +1,10 @@
+<%= simple_form_for([@menu, @menu_item], remote: true) do |f| %>
+  <%= f.input :title, autofocus: true %>
+  <%#= f.input :menuable_type, as: :hidden %>
+  <%#= f.input :menuable_id %>
+
+  <div class="modal-footer">
+    <%= f.submit class: 'btn btn-primary' %>
+    <%= link_to 'Cancel', '#', class: 'btn btn-default', onclick: "$('#modal-dialog2').modal('hide');return(false);" %>
+  </div>
+<% end %>

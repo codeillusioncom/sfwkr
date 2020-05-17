@@ -1,0 +1,133 @@
+{
+  "fragments": [
+    "main_navigation",
+    "banner",
+    "welcome",
+    "whyus",
+    "gallery",
+    "footer"
+  ],
+  "pages": [
+    {
+      "name": "Welcome",
+      "type": "page",
+      "fragments": [
+        {
+          "name": "main_navigation",
+          "properties": {
+            "logo_image": "",
+            "logo_text": "Mom & Dad's cookies"
+          },
+          "common": true
+        },
+        {
+          "name": "banner",
+          "properties": {
+            "title": "Welcome in our bakery",
+            "text": "This is our story. The bakery was founded in 2000 to make the best cookies on the planet. Our award-winning cakes are loved all over the world. Come in and taste it.",
+            "button_text": "Buy cookie",
+            "button_href": "#"
+          },
+          "common": false
+        },
+        {
+          "name": "welcome",
+          "properties": {
+            "title": "Welcome in our bakery",
+            "text": "This is our story. The bakery was founded in 2000 to make the best cookies on the planet. Our award-winning cakes are loved all over the world. Come in and taste it."
+          },
+          "common": false
+        },
+        {
+          "name": "whyus",
+          "properties": {
+            "h": "Why us?",
+            "h1": "Great flavors",
+            "text1": "Mouth-pleasing flavors, harmony of taste, taste heaven, gastronomic refreshment.",
+            "h2": "Healthy",
+            "text2": "We bake only from natural and organic ingredients, keeping health in mind.",
+            "h3": "Affordable",
+            "text3": "Our prices are affordable, realistic, affordable."
+          },
+          "common": false
+        },
+        {
+          "name": "gallery",
+          "properties": {
+            "image1": "",
+            "image2": "",
+            "image3": ""
+          },
+          "common": false
+        },
+        {
+          "name": "footer",
+          "properties": {
+            "text": "© 2020 Mam & Dad's bakery"
+          },
+          "common": true
+        }
+      ],
+      "add_to_menu": [
+        "main_navigation"
+      ],
+      "root": true,
+      "published": true
+    },
+    {
+      "name": "Blog",
+      "type": "blog",
+      "properties": {
+        "title": "Blog"
+      },
+      "add_to_menu": [
+        "main_navigation"
+      ]
+    },
+    {
+      "name": "Products",
+      "type": "webshop",
+      "properties": {
+        "title": "Products"
+      },
+      "add_to_menu": [
+        "main_navigation"
+      ]
+    },
+    {
+      "name": "Contact",
+      "type": "page",
+      "fragments": [
+        {
+          "name": "main_navigation",
+          "properties": {
+            "logo_image": "",
+            "logo_text": "Mom & Dad's cookies"
+          },
+          "common": true
+        },
+        {
+          "name": "contact",
+          "properties": {
+            "e-mail": "test@tes.com",
+            "phone": "+36/70 123-4567",
+            "address": "1234 New York Notexists Street 567"
+          },
+          "common": false
+        },
+        {
+          "name": "footer",
+          "properties": {
+            "text": "© 2020 Mam & Dad's bakery"
+          },
+          "common": true
+        }
+      ],
+      "add_to_menu": [
+        "main_navigation"
+      ],
+      "root": true,
+      "published": true
+    }
+  ]
+}

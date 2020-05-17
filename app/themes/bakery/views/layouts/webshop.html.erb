@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" style="height:100%;">
+<head>
+  <meta charset="utf-8">
+  <title>Pinegrow Bootstrap Blocks</title>
+  <%= display_meta_tags site: Settings::Setting.get_system_setting('title') %>
+  <%= stylesheet_link_tag "#{Settings::Setting.get_system_setting('theme')}/all", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "#{Settings::Setting.get_system_setting('theme')}/all", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="keywords" content="pinegrow, blocks, bootstrap"/>
+  <meta name="description" content="My new website"/>
+  <link rel="shortcut icon" href="ico/favicon.png">
+  <!-- Core CSS -->
+  <link href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,300,600,700" rel="stylesheet">
+  <link href="http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet">
+</head>
+<body data-spy="scroll" data-target="nav">
+<%= render 'fragments/main_navigation', page: nil, fragment: Pages::Fragment.where(theme_name: Settings::Setting.get_system_setting('theme'), fragment_name: 'main_navigation').try(:first) %>
+<div class="container">
+  <%= render 'fragments/notifications' %>
+  <%= yield %>
+</div>
+<%= render 'fragments/footer', page: nil, fragment: Pages::Fragment.where(theme_name: Settings::Setting.get_system_setting('theme'), fragment_name: 'footer').try(:first) %>
+</body>
+</html>

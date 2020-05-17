@@ -1,0 +1,24 @@
+<div style="position: absolute;top: 0px;">
+  <%= render 'shared/edit_button', page: @page, fragment: fragment %>
+</div>
+<nav class="navbar navbar-light navbar-expand-md fixed-top bg-light">
+    <div class="container"><img class="logo-image" src="<%= image_path 'bakery/cookies' %>"><a class="navbar-brand" href="/"><%= sanitize JSON.parse(fragment.value)['logo_text'] %></a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+        <div
+            class="collapse navbar-collapse text-justify" id="navcol-1">
+            <ul class="nav navbar-nav ml-auto">
+              <% main_menu = Pages::Menu.find_by_menu_type('main_navigation') %>
+              <% if main_menu %>
+              <%# TODO: submenus %>
+                <% main_menu.menu_items.order(:lft).order(:rgt).order(:id).each do |menu_item| %>
+                  <% if can_see(menu_item) %>
+                    <li class="<%= current_page?(render_path(menu_item)) ? 'active' : '' %> nav-item" role="presentation">
+                      <%= render_link(menu_item) %>
+                    </li>
+                  <% end %>
+                <% end %>
+              <% end %>
+              <%= render 'fragments/sign_in' %>
+            </ul>
+        </div>
+    </div>
+</nav>

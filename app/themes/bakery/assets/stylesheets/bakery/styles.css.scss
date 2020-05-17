@@ -1,0 +1,129 @@
+#bigfirst {
+  text-align: center;
+  padding: 40px;
+  background-image: url(asset_path('bakery/cupcakes-690040_1920'));
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-top: 70px;
+}
+
+@media (max-width: 991px) {
+  #bigfirst {
+    padding: 20px;
+  }
+}
+
+#bigfirst .jumbotron {
+  border-radius: 20px;
+  background-color: rgba(255,255,255,0.75);
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+@media (max-width: 991px) {
+  #bigfirst .jumbotron {
+    padding: 20px;
+  }
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.welcome {
+  text-align: center;
+  padding: 60px 0;
+}
+
+#welcome {
+  max-width: 800px;
+  font-size: 20px;
+  margin: 0 auto;
+}
+
+.h1, h1 {
+  margin: 0 0 0 0;
+}
+
+.item i {
+  font-size: 40px;
+}
+
+.blue-background {
+  background-color: rgb(245,249,248);
+}
+
+.logo-image {
+  max-height: 40px;
+  margin-right: 1px;
+  display: inline-block;
+}
+
+.navbar-light .navbar-nav .active > .nav-link, .navbar-light .navbar-nav .nav-link.active, .navbar-light .navbar-nav .nav-link.show, .navbar-light .navbar-nav .show > .nav-link {
+  background-color: #f1ebeb;
+}
+
+h1 {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  letter-spacing: 2px;
+}
+
+.my-container {
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.my-text {
+  font-size: 1.2em;
+  color: rgba(88,67,73,0.79);
+}
+
+.navbar-light .navbar-nav .nav-link {
+  color: rgba(88,67,73,0.79);
+}
+
+.main-button {
+  margin-top: 5px;
+}
+
+.my-icon {
+  color: rgba(88,67,73,0.6);
+  padding-bottom: 10px;
+  font-size: 80px !important;
+}
+
+body {
+  background-color: #f1ebeb;
+}
+
+.navbar-light .navbar-brand {
+  color: rgba(88,67,73,0.79);
+  font-weight: bold;
+}
+
+h2 {
+  color: #C52F24
+}
+
+.container .contact p {
+  color: rgba(88, 67, 73, 0.79)
+}
+
+/********/
+/* Blog */
+/********/
+
+div.buttons {
+  padding-top: 10px;padding-bottom: 10px
+}
+
+.blog-floating-buttons {
+  left: 0px;
+  z-index: 1031;
+  opacity: 0.5;
+}
+
+.blog-floating-buttons:hover {
+  opacity: 0.9;
+}

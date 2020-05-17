@@ -1,0 +1,5 @@
+var dialog = $('#modal-dialog2');
+dialog.modal('show');
+$(dialog).find('.modal-title').html('New menu item');
+
+dialog.find('.modal-body').load('<%= (pages.new_menu_menu_item_path(@menu_item.menu, @menu_item)) %>');

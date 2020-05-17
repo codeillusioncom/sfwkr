@@ -1,0 +1,24 @@
+<h1>Settings</h1>
+
+<table class="table table-bordered table-hover table-responsive table-striped">
+  <thead>
+  <tr>
+    <th>Key</th>
+    <th>Value</th>
+    <th></th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @settings.each do |setting| %>
+    <tr>
+      <td><%= setting.key %></td>
+      <td><%= setting.value %></td>
+      <td>
+        <%= link_to settings.edit_setting_path(setting) do %>
+          <span class="fa fa-edit"></span>
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>

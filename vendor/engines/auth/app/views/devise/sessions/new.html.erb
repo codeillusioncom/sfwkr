@@ -1,0 +1,18 @@
+<div class="devise-views">
+  <div class="text-center">
+    <%= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => {:class => 'form-signin'}) do |f| %>
+      <img class="mb-4" src="https://getbootstrap.com/docs/4.3/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
+      <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+      <%= f.input :email, autofocus: true, autocomplete: 'email', placeholder: 'E-mail address', label: false %>
+      <%= f.input :password, autocomplete: 'current-password', placeholder: 'Password', label: false %>
+      <div class="checkbox mb-3">
+        <label>
+          <%= f.input :remember_me, as: :boolean %>
+        </label>
+      </div>
+      <%= f.button :submit, 'Sign in', class: 'btn btn-lg btn-primary btn-block' %>
+      <hr/>
+      <%= render "devise/shared/links" %>
+    <% end %>
+  </div>
+</div>

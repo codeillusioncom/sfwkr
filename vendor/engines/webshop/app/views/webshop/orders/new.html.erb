@@ -1,0 +1,15 @@
+<h1>New Order</h1>
+
+<%= simple_form_for([@webshop, @order]) do |f| %>
+  <%= f.input :name, required: true, autofocus: true, input_html: {value: 'TODO: név'} %>
+  <%= f.input :email, required: true, input_html: {value: @current_user.email}, disabled: true %>
+  <%= f.input :address %>
+  <div class="row">
+    <div class="col-xs-3">
+      <%= link_to 'Back', webshop.webshop_path(@webshop), class: 'btn btn-default' %>
+    </div>
+    <div class="col-xs-9 text-right">
+      <%= f.submit 'Proceed', class: 'btn btn-primary' %>
+    </div>
+  </div>
+<% end %>

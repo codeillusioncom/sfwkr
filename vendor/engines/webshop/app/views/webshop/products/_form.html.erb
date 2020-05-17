@@ -1,0 +1,24 @@
+<%= simple_form_for([@webshop, @product]) do |f| %>
+  <%= f.input :name, autofocus: true %>
+  <%= f.input :description, as: :trix_editor, data: {} %>
+  <%= f.input :net_price %>
+  <%= f.input :tax %>
+  <%= f.input :sku %>
+  <%= f.input :barcode %>
+  <%= f.input :track_quantity %>
+  <%= f.input :continue_selling_when_out_of_stock %>
+  <%= f.input :available_pieces %>
+  <%= f.input :physical_product %>
+  <%= f.input :unit_name %>
+  <%= f.input :unit_value %>
+  <%= f.input :country_of_origin %>
+  <%= f.input :vendor %>
+  <%= f.input :tags %>
+  <%= f.input :groups %>
+  <%= f.input :notes %>
+
+  <%= f.file_field :images, multiple: true, direct_upload: true %>
+
+  <%= f.submit class: 'btn btn-primary' %>
+  <%= link_to 'Cancel', webshop.webshop_path(@webshop), class: 'btn btn-default' %>
+<% end %>

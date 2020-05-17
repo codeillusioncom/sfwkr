@@ -1,0 +1,3 @@
+<%= link_to pages.edit_page_fragment_path(page.id, fragment.id), class: 'btn-warning btn fragmentEditorButton' do %>
+  <i class="material-icons">edit</i>
+<% end if page && policy(page).edit? %>

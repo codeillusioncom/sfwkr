@@ -1,0 +1,20 @@
+<% if @posts.count > 0 %>
+  <% @posts.each do |post| %>
+    <%= render post, short: true %>
+    <hr />
+  <% end %>
+<% else %>
+  <div class="row">
+    <div class="col-sm-6">
+      <i class="material-icons" style="font-size: 400px;color:silver">art_track</i>
+    </div>
+    <div class="col-sm-6" style="margin-top: auto; margin-bottom: auto;">
+      <h3 style="color: silver">No posts created jet. If you are the owner, please create the first one...</h3>
+    </div>
+  </div>
+<% end %>
+
+<br />
+<div class="buttons">
+  <%= link_to 'Create new Post...', blog.new_blog_post_path(@blog), class: 'btn btn-primary' if policy(@blog.posts.build).create? %>  
+</div>

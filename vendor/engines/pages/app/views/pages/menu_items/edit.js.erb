@@ -1,0 +1,6 @@
+console.log('edit');
+var dialog = $('#modal-dialog2');
+dialog.modal('show');
+$(dialog).find('.modal-title').html('Edit menu item');
+
+dialog.find('.modal-body').load('<%= (pages.edit_menu_menu_item_path(@menu_item.menu, @menu_item)) %>');

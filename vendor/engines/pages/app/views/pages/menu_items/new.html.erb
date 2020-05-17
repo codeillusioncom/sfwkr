@@ -1,0 +1,119 @@
+<script type="text/javascript" charset="utf-8">
+    function loadPages__Page() {
+        clearMenuItems();
+        addMenuItem('loading...', '');
+        var jqxhr = $.get("<%= pages.pages_path(format: :json) %>", function () {
+        }).done(function (data) {
+            clearMenuItems();
+            $.each(data, function (index, value) {
+                addMenuItem(value.title, value.id);
+            });
+        }).fail(function () {
+            alert("error");
+        });
+    }
+
+    function loadPages__Url() {
+        clearMenuItems();
+        addMenuItem('loading...', '');
+        var jqxhr = $.get("<%= pages.urls_path(format: :json) %>", function () {
+        }).done(function (data) {
+            clearMenuItems();
+            $.each(data, function (index, value) {
+                addMenuItem(value.href, value.id);
+            });
+        }).fail(function () {
+            alert("error");
+        });
+    }
+
+    function loadBlog__Blog() {
+        // TODO:
+    }
+
+    function loadWebshop__Webshop() {
+        // TODO:
+    }
+
+    function addMenuItem(title, id) {
+        var li = document.createElement('li');
+        li.classList.add('list-group-item');
+        li.setAttribute('data-id', id);
+        li.onclick = function () {
+            listElementSelected(id)
+        };
+        li.innerHTML = title;
+        $('#menu_item_list').append(li);
+    }
+
+    function listElementSelected(element) {
+        var type = $('#menu_item_menuable_type').val();
+        console.log('selected ' + type + '/' + element);
+        loadEditor();
+    }
+
+    function loadEditor() {
+        $('#menu_item_content').load('<%= (pages.edit_page_path(Pages::Page.first)) %>');
+    }
+
+    function clearMenuItems() {
+        $('#menu_item_list').children().remove();
+    }
+
+    function selectMenuType(element) {
+        console.log('clicked!');
+        $('#edit_menu_item_<%= @menu_item.id %> .active').removeClass('active');
+        $('#menu_item_menuable_type').val(element);
+        $('#page-type-' + element.replace('::', '--')).addClass('active');
+        //console.log('load' + element.replace('::', '__') + '()');
+        //eval('load' + element.replace('::', '__') + '()');
+    }
+</script>
+
+<%= simple_form_for([@menu, @menu_item], remote: true) do |f| %>
+  <% ['Pages::Page', 'Pages::Url', 'Blog::Blog', 'Webshop::Webshop'].each do |element| %>
+    <div id="page-type-<%= element.gsub('::', '--') %>" class="col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 page-type" onclick="selectMenuType('<%= element %>')"><%= element %></div>
+  <% end %>
+  <div>&nbsp;</div>
+  <br/>
+  <%= f.input :title, autofocus: true %>
+  <%= f.input :menuable_type, as: :hidden %>
+  <%#= f.input :menuable_id %>
+
+  <ul id="menu_item_list" class="list-group">
+  </ul>
+
+  <div id="menu_item_content">
+
+  </div>
+
+  <div class="modal-footer">
+    <%= f.submit class: 'btn btn-primary' %>
+    <%= link_to 'Cancel', 'TODO: close', class: 'btn btn-default' %>
+  </div>
+<% end %>
+
+<style>
+  .page-type {
+    background-color: #eee;
+    height: 100px;
+    text-align: center;
+    border-width: 1px;
+    border-style: solid;
+    border-color: lightgray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .page-type.active {
+    background-color: #d0d2c2;
+    border-color: darkorange;
+    border-style: solid;
+    border-width: 1px;
+  }
+
+  .page-type:hover {
+    background-color: #d0d2c2;
+  }
+</style>

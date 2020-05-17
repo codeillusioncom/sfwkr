@@ -1,0 +1,11 @@
+<%= render 'shared/edit_button', page: @page, fragment: fragment if @page && fragment %>
+<div class="footer-dark">
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col item social"><a href="#"><i class="icon ion-social-facebook"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a><a href="#"><i class="icon ion-social-snapchat"></i></a><a href="#"><i class="icon ion-social-instagram"></i></a></div>
+            </div>
+            <p class="copyright"><%= sanitize JSON.parse(fragment.value)['text'] %></p>
+        </div>
+    </footer>
+</div>

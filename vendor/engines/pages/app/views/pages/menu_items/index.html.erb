@@ -1,0 +1,7 @@
+<h1><%= @menu.menu_type %></h1>
+
+<ol class="the-sortable-tree the-sortable-tree--list" data-max_levels="5", data-rebuild_url="">
+  <%= sortable_tree @menu_items, {namespace: @menu} %>
+</ol>
+
+<%= link_to 'Add new menu item...', pages.new_menu_menu_item_path(@menu), class: 'btn btn-primary' %>

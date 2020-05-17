@@ -1,0 +1,12 @@
+<h1>Orders</h1>
+
+<table class="table table-responsive table-hover table-striped">
+  <% @orders.each do |order| %>
+    <tr>
+      <td><%= order.name %></td>
+      <td><%= order.email %></td>
+      <td><%= order.address %></td>
+      <td><%= order.line_items.count %>db</td>
+    </tr>
+  <% end %>
+</table>

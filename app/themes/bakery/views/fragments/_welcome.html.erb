@@ -1,0 +1,5 @@
+<%= render 'shared/edit_button', page: @page, fragment: fragment if @page && fragment %>
+<div class="container welcome my-container" id="welcome-1">
+    <h1><%= sanitize JSON.parse(fragment.value)['title'] %></h1>
+    <p class="my-text"><%= sanitize JSON.parse(fragment.value)['text'] %></p>
+</div>

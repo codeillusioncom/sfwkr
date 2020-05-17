@@ -1,0 +1,61 @@
+<section class="content-block gallery-1 gallery-1-1">
+  <div class="container">
+    <div class="underlined-title">
+      <h1>Termékeink</h1>
+      <hr>
+      <h2>csak a legjobbakat áruljuk</h2>
+    </div>
+    <ul class="filter">
+      <li class="active">
+        <a href="#" data-filter="*">Mindegyik</a>
+      </li>
+      <li>
+        <a href="#" data-filter=".artwork">Artwork</a>
+      </li>
+      <li>
+        <a href="#" data-filter=".creative">Creative</a>
+      </li>
+      <li>
+        <a href="#" data-filter=".nature">Nature</a>
+      </li>
+      <li>
+        <a href="#" data-filter=".outside">Outside</a>
+      </li>
+      <li>
+        <a href="#" data-filter=".photography">Photography</a>
+      </li>
+    </ul>
+    <div class="row">
+      <% @products.each do |product| %>
+        <div class="col-md-3 col-sm-6 col-xs-12 gallery-item-wrapper photography artwork">
+          <div class="gallery-item">
+            <div class="gallery-thumb">TODO: minden kép látszódjon itt kicsire méretezve!
+              <%= image_tag main_app.url_for(product.images.first.variant(resize_to_limit: [300, 300])), class: 'img-thumbnail img-responsive' %>
+              <div class="image-overlay"></div>
+              <a href="<%= main_app.url_for(product.images.first) %>" class="gallery-zoom"><i class="fa fa-eye"></i></a>
+            </div>
+            <div class="gallery-details">
+              <h5><%= product.name %></h5>
+              <h3><%= number_to_currency(product.net_price) %></h3>
+              <small><%= product.available_pieces.to_i %> db raktáron</small>
+            </div>
+          </div>
+          <%= link_to webshop.webshop_product_path(@webshop, product), class: 'btn btn-info btn-block', style: 'margin-top: 0px' do %>
+            <ul class="fa fa-plus"></ul>
+            Details...
+          <% end %>
+          <%= link_to "Add to cart", webshop.webshop_line_items_path(@webshop, product), class: 'btn btn-block btn-warning', method: :put %>
+        </div>
+      <% end %>
+
+      <div class="col-md-3 col-sm-6 col-xs-12 gallery-item-wrapper photography artwork">
+        <div class="center">
+          <%= link_to webshop.new_webshop_product_path(@webshop), class: 'btn btn-primary btn-block', style: 'margin-top: 0px' do %>
+            <ul class="fa fa-plus"></ul>
+            New product...
+          <% end if policy(@webshop.products.build).new? %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

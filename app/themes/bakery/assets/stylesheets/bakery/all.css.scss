@@ -1,0 +1,35 @@
+/*
+ * This is a manifest file that'll automatically include all the stylesheets available in this directory
+ * and any sub-directories. You're free to add application-wide styles to this file and they'll appear at
+ * the top of the compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require bakery/bootstrap.min
+ *= require bakery/styles
+ *= require bakery/Footer-Dark
+ *= require bakery/amsify.suggestags
+ *= require trix
+ *= require_self
+ */
+
+.fragmentEditorButton {
+  z-index: 1031;
+  position: absolute;
+  opacity: 0.5;
+}
+.fragmentEditorButton:hover {
+  opacity: 0.9;
+}
+.logo-text {
+  color: white;
+  display: inline;
+  font-size: 42px;
+  vertical-align: text-top;
+  font-weight: 600;
+}
+
+.post-unpublished {
+  border-color: #ff000045;
+  border-style: solid;
+  background-color: rgba(255,0,0,0.1);
+  padding-bottom: 18px;
+}

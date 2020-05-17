@@ -1,0 +1,7 @@
+{
+  "name": "web",
+  "private": true,
+  "dependencies": {
+    "sortablejs": "^1.10.2"
+  }
+}

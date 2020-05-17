@@ -1,0 +1,12 @@
+<%= simple_form_for(@setting) do |f| %>
+  <%= f.input :user_id, input_html: {value: current_user.id}, as: :hidden %>
+  <%= f.input :key, disabled: true %>
+  <% if @setting.key == 'theme' %>
+    <%= f.input :value, autofocus: true, as: :select, collection: Dir.entries("#{Rails.root}/app/themes").select { |entry| entry != '.' && entry != '..' }, include_blank: false %>
+  <% else %>
+    <%= f.input :value, autofocus: true, as: :string %>
+  <% end %>
+
+  <%= f.submit class: 'btn btn-primary' %>
+  <%= link_to 'Cancel', settings.settings_path, class: 'btn btn-default' %>
+<% end %>
